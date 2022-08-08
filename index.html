@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8f5e0cc04a.js" crossorigin="anonymous"></script>
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -11,8 +15,74 @@
 </head>
 <body>
   <header>
+    <div class="container-header">
+      <i class="fa-solid fa-calendar-days calendar calendar-view  clicked"></i>
+      <div>
+        <i class="fa-solid fa-heart heart favorites"></i>
+        <i class="fa-solid fa-dumbbell dumbbell exercise-cat"></i>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div class="quote-container">
+        <div class="quote-wrapper">
+          <div class="content">
+            <div class="quote-area">
+              <i class="fas fa-quote-left"></i>
+              <p class="quote"></p>
+              <i class="fas fa-quote-right"></i>
+            </div>
+            <div class="author">
+              <span>_</span>
+              <span class="name">Mary Kay Ash</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar-container">
+        <div id="calendar-header">
+          <div id="month-display"></div>
+          <div class="calendar-btns">
+            <button class="back-btn">Back</button>
+            <button class="next-btn">Next</button>
+          </div>
+        </div>
+        <div id="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thur</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+
+        <div id="calendar"></div>
+      </div>
+
+      <div class="log-container">
+        <div class="no-log">
+          <p>No Workout Logged</p>
+          <span>Click <i class="fa-solid fa-circle-plus"> </i> to get started</span>
+          <div><i class="fa-solid fa-circle-plus add-exercise"></i></div>
+        </div>
+        <div class="workout-details">
+          <h2 class="logged-head">Exercises</h2>
+          <ul class="workout-list"></ul>
+          <div><i class="fa-solid fa-circle-plus additonal-exercise"></i></div>
+        </div>
+      </div>
+
+      <div id="new-workout-modal">
+        <h2>Add Exercise</h2>
+        <input class="event-title">
+        <button class="save-btn">Save</button>
+        <button class="cancel-btn">Cancel</button>
+      </div>
+      <div id="modal"></div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
