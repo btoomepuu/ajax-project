@@ -175,14 +175,13 @@ li {
 /* .day > i {
   color: grey;
 } */
+#current-day {
+  background-color: #92a1d1;
+}
 
 .day:hover {
   background-color: #e8faed;
 }
-
-/* .day + #currentDay {
-  background-color: #e8f4fa;
-} */
 
 .padding {
   background: transparent;

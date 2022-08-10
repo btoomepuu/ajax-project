@@ -1,7 +1,8 @@
 /* exported data */
 var data = {
   workouts: [],
-  clicked: null
+  clicked: null,
+  view: 'calendar view'
 };
 
 var previousEntries = localStorage.getItem('entry-local-storage');
