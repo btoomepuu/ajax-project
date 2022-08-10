@@ -1,0 +1,225 @@
+body {
+  background-color: rgb(212, 224, 227);
+  color: rgb(21, 53, 83);
+  font-family: Ubuntu, sans-serif;
+}
+
+header {
+  height: 10vh;
+  background-color: rgb(23, 126, 130);
+}
+
+button {
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 0 2px gray;
+  border: none;
+  outline: none;
+  padding: 0.25rem;
+  border-radius: 5px;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+.container-header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 2%;
+  font-size: 1.5rem;
+}
+
+.dumbbell,
+.heart,
+.calendar {
+  color: rgb(212, 224, 227);
+  padding: 0.2em;
+}
+
+.clicked {
+  color: rgb(21, 53, 83);
+}
+
+/* Quote */
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 25vh;
+}
+
+.quote-wrapper {
+  width: 30em;
+  margin: 2em;
+  border-radius: 15px;
+  padding: 1em 1.5em;
+  background-color: aliceblue;
+}
+
+.quote-wrapper h1 {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.quote-wrapper .content {
+  margin: 1em 0;
+}
+
+.content .quote-area {
+  display: flex;
+  justify-content: center;
+}
+
+.quote-area i {
+  font-size: 1.25rem;
+}
+
+.quote-area i:first-child {
+  margin: 0.75em 0.25em 0 0;
+}
+
+.quote-area i:last-child {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 0 0.75em 0.25em;
+}
+
+.quote-area .quote {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  word-break: word;
+  font-size: 1.3rem;
+}
+
+.content .author {
+  display: flex;
+  justify-content: flex-end;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.author span:first-child {
+  font-family: monospace;
+  margin: -0.5rem 0.25rem 0 0;
+}
+
+/* Calendar */
+#calendar-header {
+  width: 100%;
+  display: flex;
+  font-size: x-large;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+#month-display {
+  width: 50%;
+  padding-top: 1%;
+}
+
+.calendar-btns {
+  width: 50%;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.next-btn,
+.back-btn {
+  width: 50px;
+  display: inline-block;
+  background-color: #92a1d1;
+}
+
+#weekdays {
+  width: 100%;
+  display: flex;
+}
+
+#weekdays div {
+  flex-basis: 13.72%;
+  margin: 0.28%;
+  color: aliceblue;
+  background-color: rgb(23, 126, 130);
+  padding-left: 1em;
+}
+
+#calendar-container {
+  visibility: visible;
+}
+
+#calendar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 35vh;
+}
+
+.day {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 13.72%;
+  margin: 0.28%;
+  padding: 1% 0 5% 1%;
+  box-shadow: 0 0 3px #cbd4c2;
+  cursor: pointer;
+}
+
+/* .day > i {
+  color: grey;
+} */
+#current-day {
+  background-color: #92a1d1;
+}
+
+.day:hover {
+  background-color: #e8faed;
+}
+
+.padding {
+  background: transparent;
+  cursor: default;
+}
+
+#new-workout-modal {
+  visibility: hidden;
+  z-index: 20;
+  min-height: 20vh;
+  width: 45vw;
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  background-color: aliceblue;
+  padding: 3% 5%;
+  border-radius: 5px;
+}
+
+#modal {
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.no-log {
+  display: none;
+}
+
+.workout-details {
+  display: none;
+}
+
+.workout-completed {
+  color: green;
+}
