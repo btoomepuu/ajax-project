@@ -15,11 +15,33 @@ function quoteGenerator() {
   authorName.textContent = result.author;
 }
 
-// const dumbbell = document.querySelector('.dumbbell');
-// dumbbell.addEventListener('click', () => {
-//   // console.log('clicked');
-//   dumbbell.classList.add('clicked');
-// });
+// header
+
+const calendarView = document.querySelector('.calendar-view');
+const calendarDay = document.getElementById('calendar');
+calendarDay.addEventListener('click', () => {
+  data.clicked = event.target.id;
+  calendarView.classList.add('clicked');
+  dumbbellHead.classList.remove('clicked');
+  contentDislay();
+});
+
+calendarView.addEventListener('click', () => {
+  data.view = 'calendar view';
+  calendarView.classList.add('clicked');
+  dumbbellHead.classList.remove('clicked');
+  viewSwitch();
+});
+
+const dumbbellHead = document.querySelector('.exercise-cat-dumbbell');
+const catContainer = document.querySelector('.category-container');
+dumbbellHead.addEventListener('click', () => {
+  data.view = 'exercise cat';
+  calendarView.classList.remove('clicked');
+  dumbbellHead.classList.add('clicked');
+
+  viewSwitch();
+});
 
 // Calendar
 let nav = 0;
@@ -71,14 +93,17 @@ function load() {
 
     if (i > paddingDays) {
       daySquare.textContent = i - paddingDays;
-      // var dumbbellIcon = document.createElement('i');
-      // dumbbellIcon.setAttribute('class', 'fa-solid fa-dumbbell', 'dumbbell', 'dumbbell-day');
-      // daySquare.appendChild(dumbbellIcon);
       if (i - paddingDays === day && nav === 0) {
         daySquare.id = 'current-day';
       }
     } else {
       daySquare.classList.add('padding');
+    }
+    if (data.workouts.find(element => element.date === daySquare.id)) {
+      var dumbbellIcon = document.createElement('i');
+      dumbbellIcon.setAttribute('class', 'fa-solid fa-dumbbell', 'dumbbell', 'dumbbell-day');
+      dumbbellIcon.setAttribute('id', `${daySquare.id}`);
+      daySquare.appendChild(dumbbellIcon);
     }
 
     calendar.appendChild(daySquare);
@@ -114,19 +139,9 @@ function createWorkout() {
     displayItem(workout);
   }
 
-  noLog.style.display = 'none';
-
-  workoutDeatails.style.display = 'contents';
+  viewSwitch('date');
   closeModal();
 }
-
-const calendarDay = document.getElementById('calendar');
-
-// day to view
-calendarDay.addEventListener('click', () => {
-  data.clicked = event.target.id;
-  contentDislay();
-});
 
 function displayItem(object) {
   if (object.exercises.length === 1) {
@@ -153,15 +168,14 @@ const showDate = document.querySelector('.show-date');
 function contentDislay() {
   showDate.textContent = data.clicked;
   const found = data.workouts.find(element => element.date === data.clicked);
-  calendarConatiner.style.display = 'none';
-  quoteContainer.style.display = 'none';
   if (data.workouts.length >= 1) {
     if (found) {
       data.view = 'date';
       viewSwitch();
       renderList(found);
     } else {
-      noLog.style.display = 'contents';
+      data.view = 'no log';
+      viewSwitch();
     }
   }
 }
@@ -174,26 +188,37 @@ function viewSwitch() {
       quoteContainer.style.display = 'flex';
       noLog.style.display = 'none';
       workoutDeatails.style.display = 'none';
+      catContainer.style.display = 'none';
       data.clicked = null;
       clearList(workoutList);
       break;
     case 'date':
+      workoutDeatails.style.display = 'flex';
       noLog.style.display = 'none';
-      workoutDeatails.style.display = 'contents';
+      calendarConatiner.style.display = 'none';
+      quoteContainer.style.display = 'none';
+      catContainer.style.display = 'none';
+      break;
+    case 'no log':
+      noLog.style.display = 'flex';
+      workoutDeatails.style.display = 'none';
+      calendarConatiner.style.display = 'none';
+      quoteContainer.style.display = 'none';
+      catContainer.style.display = 'none';
+      break;
+    case 'exercise cat':
+      catContainer.style.display = 'flex';
+      noLog.style.display = 'none';
+      workoutDeatails.style.display = 'none';
+      calendarConatiner.style.display = 'none';
+      quoteContainer.style.display = 'none';
       break;
 
   }
 
 }
 
-const calendarView = document.querySelector('.calendar-view');
-// // const exerciseCat = document.querySelector('.exercise-cat');
 // // const favorites = document.querySelector('.favorites');
-
-calendarView.addEventListener('click', () => {
-  data.view = 'calendar view';
-  viewSwitch();
-});
 
 function initButtons() {
   document.querySelector('.next-btn').addEventListener('click', () => {
@@ -240,3 +265,36 @@ function clearList(list) {
     list.removeChild(list.firstChild);
   }
 }
+
+// exercise info
+const exerciseData = [];
+const info = new XMLHttpRequest();
+info.open('GET', 'https://wger.de/api/v2/exerciseinfo/?limit=500&offset=50"', 'Authorization: Token 8e408e3874a8f9855d02826fd4c5a0c04abc1464');
+info.send();
+info.addEventListener('load', reqListener);
+
+function reqListener() {
+  var response = JSON.parse(info.responseText);
+  response.results.forEach(item => {
+    if (item.language.id === 2) {
+      exerciseData.push(item);
+    }
+
+  });
+}
+
+function displayExerciseName() {
+
+}
+
+catContainer.addEventListener('click', displayExerciseName);
+
+// if (item.category.name === target) {
+//   console.log('exercise name:', item.name, target);
+//   console.log('exercise decription:', item.description);
+// }
+
+// const target = event.target.id;
+// if (item.images.length !== 0) {
+//   console.log('exercise photo:', item.images);
+// }

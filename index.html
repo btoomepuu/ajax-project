@@ -19,7 +19,7 @@
       <i class="fa-solid fa-calendar-days calendar calendar-view  clicked"></i>
       <div>
         <i class="fa-solid fa-heart heart favorites"></i>
-        <i class="fa-solid fa-dumbbell dumbbell exercise-cat"></i>
+        <i class="fa-solid fa-dumbbell dumbbell exercise-cat-dumbbell"></i>
       </div>
     </div>
   </header>
@@ -65,17 +65,36 @@
       <div class="log-container">
         <div class="no-log">
           <p>No Workout Logged</p>
-          <span>Click <i class="fa-solid fa-circle-plus"> </i> to get started</span>
+          <div>Click <i class="fa-solid fa-circle-plus"> </i> to get started</div>
           <div><i class="fa-solid fa-circle-plus add-exercise"></i></div>
         </div>
         <div class="workout-details">
           <h2 class="logged-head">Exercises</h2>
           <h4 class="show-date"></h4>
           <ul class="workout-list"></ul>
-          <div><i class="fa-solid fa-circle-plus additonal-exercise"></i></div>
+          <i class="fa-solid fa-circle-plus additonal-exercise"></i>
         </div>
       </div>
 
+      <div class="exercise-info-container">
+        <div class="category-container">
+          <div class="muscle-cat" id="Arms"><a href="#arm-conatiner">Arms</a></div>
+          <div class="muscle-cat" id="Legs"><a href="#arm-conatiner">Legs</a></div>
+          <div class="muscle-cat" id="Abs"><a href="#arm-conatiner">Abs</a></div>
+          <div class="muscle-cat" id="Chest"><a href="#arm-conatiner">  Chest</a></div>
+          <div class="muscle-cat" id="Back"><a href="#arm-conatiner">Back</a></div>
+          <div class="muscle-cat" id="Shoulders"><a href="#arm-conatiner">Shoulders</a></div>
+          <div class="muscle-cat" id="Calves"><a href="#arm-conatiner">Calves</a></div>
+        </div>
+
+        <div id="arms-container"></div>
+        <div id="legs-container"></div>
+        <div id="abs-container"></div>
+        <div id="chest-container"></div>
+        <div id="back-container"></div>
+        <div id="shoulders-container"></div>
+        <div id="calves-container"></div>
+      </div>
       <div id="new-workout-modal">
         <h2 class="list-head">Add Exercise</h2>
         <input class="event-title">

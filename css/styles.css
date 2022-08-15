@@ -17,11 +17,16 @@ button {
   outline: none;
   padding: 0.25rem;
   border-radius: 5px;
-  color: white;
+  color: snow;
 }
 
 li {
   list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .container-header {
@@ -172,11 +177,12 @@ li {
   cursor: pointer;
 }
 
-/* .day > i {
-  color: grey;
-} */
+#current-day > .fa-dumbbell {
+  background-color: rgb(146, 161, 209, 0);
+}
+
 #current-day {
-  background-color: #92a1d1;
+  background-color: rgb(146, 161, 209, 0.5);
 }
 
 .day:hover {
@@ -213,13 +219,75 @@ li {
 }
 
 .no-log {
+  width: 100%;
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.no-log :not(:last-child) {
+  color: grey;
+}
+
+.add-exercise {
+  font-size: 2rem;
+  margin-top: 25%;
 }
 
 .workout-details {
   display: none;
+
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 50vh;
+  width: 100%;
 }
 
-.workout-completed {
-  color: green;
+.workout-details h2,
+.workout-details h4 {
+  display: inline-block;
+  width: 50%;
 }
+
+.workout-list,
+.additonal-exercise {
+  width: 100%;
+}
+
+.category-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.muscle-cat {
+  background-color: #92a1d1;
+  color: snow;
+  border-radius: 5px;
+  padding: 1.5%;
+  box-shadow: 0 0 2px gray;
+}
+
+/* #Arms,
+#Legs,
+#Chest,
+#Abs {
+  width: 25%;
+  flex-basis: 20%;
+  margin-bottom: 5%;
+}
+
+#Shoulders,
+#Calves,
+#Back {
+  width: calc(100% / 3);
+  flex-basis: 23.8%;
+  margin-top: 5%;
+} */

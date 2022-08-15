@@ -2,6 +2,7 @@
 var data = {
   workouts: [],
   clicked: null,
+  favorites: [],
   view: 'calendar view'
 };
 
